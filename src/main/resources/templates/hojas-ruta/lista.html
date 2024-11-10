@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hojas de Ruta - Sistema de Stock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Hojas de Ruta</h2>
+            <a th:href="@{/hojas-ruta/nueva}" class="btn btn-primary">Nueva Hoja de Ruta</a>
+        </div>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nro. Hoja Ruta</th>
+                    <th>Cliente</th>
+                    <th>Producto</th>
+                    <th>Gramaje</th>
+                    <th>Kilos Necesarios</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="hr : ${hojasRuta}">
+                    <td th:text="${hr.nroHojaRuta}"></td>
+                    <td th:text="${hr.nroCliente}"></td>
+                    <td th:text="${hr.nroProducto}"></td>
+                    <td th:text="${hr.gramaje}"></td>
+                    <td th:text="${hr.kilosNecesarios}"></td>
+                    <td th:text="${hr.estado}"></td>
+                    <td>
+                        <a th:href="@{/hojas-ruta/editar/{id}(id=${hr.id})}" class="btn btn-sm btn-warning">Editar</a>
+                        <a th:href="@{/hojas-ruta/ver/{id}(id=${hr.id})}" class="btn btn-sm btn-info">Ver</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

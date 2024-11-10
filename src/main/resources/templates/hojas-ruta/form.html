@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nueva Hoja de Ruta - Sistema de Stock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Nueva Hoja de Ruta</h2>
+        <form th:action="@{/hojas-ruta/guardar}" th:object="${hojaRuta}" method="post">
+            <div class="mb-3">
+                <label for="nroCliente" class="form-label">Número de Cliente</label>
+                <input type="text" class="form-control" id="nroCliente" th:field="*{nroCliente}" required>
+            </div>
+            <div class="mb-3">
+                <label for="nroProducto" class="form-label">Número de Producto</label>
+                <input type="text" class="form-control" id="nroProducto" th:field="*{nroProducto}" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" th:field="*{descripcion}" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="gramaje" class="form-label">Gramaje</label>
+                <input type="number" class="form-control" id="gramaje" th:field="*{gramaje}" required>
+            </div>
+            <div class="mb-3">
+                <label for="kilosNecesarios" class="form-label">Kilos Necesarios</label>
+                <input type="number" class="form-control" id="kilosNecesarios" th:field="*{kilosNecesarios}" required>
+            </div>
+            <div class="mb-3">
+                <label for="largo" class="form-label">Largo</label>
+                <input type="number" class="form-control" id="largo" th:field="*{largo}" required>
+            </div>
+            <div class="mb-3">
+                <label for="ancho" class="form-label">Ancho</label>
+                <input type="number" class="form-control" id="ancho" th:field="*{ancho}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a th:href="@{/hojas-ruta/lista}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
